@@ -1,0 +1,104 @@
+let mapleader=" "
+
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Which key
+set which-key
+set notimeout
+let g:WhichKey_ShowVimActions = "true"
+let g:WhichKey_DefaultDelay = 300
+
+set relativenumber number
+set surround
+set argtextobj
+set exchange
+set multiple-cursors
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set idearefactormode=keep
+set clipboard+=unnamedplus
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" Multiple cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+" Go to
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>gs <Action>(GotoSuperMethod)
+map <leader>gt <Action>(GotoTest)
+
+let g:WhichKeyDesc_goto_declaration = "<leader>gd go to declaration"
+let g:WhichKeyDesc_goto_implementation = "<leader>gi go to implementation"
+let g:WhichKeyDesc_goto_super_method = "<leader>gs go to super method"
+let g:WhichKeyDesc_goto_test = "<leader>gt go to test"
+
+" IntelliJ Find and Replace
+map <leader>ff <Action>(Find)
+map <leader>fr <Action>(Replace)
+
+let g:WhichKeyDesc_intellij_find = "<leader>ff IntelliJ find"
+let g:WhichKeyDesc_intellij_find = "<leader>fr IntelliJ replace"
+
+" Code generation
+map <leader>gc <Action>(Generate)
+map <leader>om <Action>(OverrideMethods)
+map <leader>im <Action>(ImplementMethods)
+
+let g:WhichKeyDesc_generate = "<leader>gc generate code"
+let g:WhichKeyDesc_override_methods = "<leader>om override methods"
+let g:WhichKeyDesc_implement_methods = "<leader>im implement methods"
+
+" Refactoring
+map <leader>rf <Action>(Refactorings.QuickListPopupAction)
+map <leader>tm <Action>(ChangeTypeSignature)
+
+let g:WhichKeyDesc_refactor = "<leader>rf refactor"
+let g:WhichKeyDesc_change_type_signature = "<leader>tm change type signature"
+
+" Analyzer
+map <leader>aa <Action>(AnalyzeActions)
+let g:WhichKeyDesc_analyze_actions = "<leader>aa analyze actions"
+
+" File navigation
+map <leader>sip <Action>(SelectInProjectView)
+let g:WhichKeyDesc_select_in_project_view = "<leader>sip select in project view"
+
+" IntelliJ Surround
+map <leader>sw <Action>(SurroundWith)
+let g:WhichKeyDesc_intellij_surround = "<leader>sw IntelliJ surround"
+
+" regular vim descriptions
+
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+" Highlight copied text
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
