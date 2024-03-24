@@ -32,7 +32,7 @@ zstyle ':vcs_info:git:*' formats '%F{red}[%b]%f'
 
 # Autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^ ' autosuggest-accept
+bindkey '^Y' autosuggest-accept
 bindkey '^[[3;5~' autosuggest-clear
 
 # Autojump (Rust AUR package)
